@@ -1,8 +1,0 @@
-install the follwing modules in python 
-pip install networkx
-pip install matplotlib
-
-(Python == 2.7)
-
-Run the file with dataset and main file in same folder using command
-$python main.py
