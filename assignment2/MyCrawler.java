@@ -39,17 +39,23 @@ public class MyCrawler extends WebCrawler {
      public void visit(Page page) {
          String url = page.getWebURL().getURL();
          System.out.println("URL: " + url);
-
+         String[] Wordss = new String[] {"the","scraping","new"};
          if (page.getParseData() instanceof HtmlParseData) {
              HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();
              String text = htmlParseData.getText();
              String html = htmlParseData.getHtml();
-           //  if(html.contains("the")){
+            boolean Cou = true;
+            for(int i=0;i<Wordss.length;i++) {
+            	if(text.contains(Wordss[i])) {
+            		Cou = false;
+            	}
+            }
+             if(Cou){
              Set<WebURL> links = htmlParseData.getOutgoingUrls();
-            // }
-           //  else {
-           // 	 continue;
-            // }
+             }
+             else {
+            	 continue;
+             }
              System.out.println("Text length: " + text.length());
              System.out.println("Html length: " + html.length());
              System.out.println("Number of outgoing links: " + links.size());
